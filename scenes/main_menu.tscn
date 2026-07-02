@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://0cffmnlq1nvg"]
+
+[ext_resource type="Script" uid="uid://c53a1agbv8pwn" path="res://scenes/main_menu.gd" id="1_o1atq"]
+[ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="2_5gu6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.91, 0.91, 0.91, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.09, 0.09, 0.09, 0.6)
+shadow_size = 16
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="Theme" id="Theme_0ufp5"]
+Button/colors/font_color = Color(0.29, 0.29, 0.29, 1)
+Button/fonts/font = ExtResource("2_5gu6x")
+Button/styles/normal = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="MainMenu" type="Control" unique_id=1569978266 node_paths=PackedStringArray("host_button", "join_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1atq")
+host_button = NodePath("Buttons/Host")
+join_button = NodePath("Buttons/Join")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=337782775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Buttons" type="Control" parent="." unique_id=2009442729]
+layout_mode = 1
+anchor_top = 0.50600004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.32003784
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_0ufp5")
+
+[node name="Host" type="Button" parent="Buttons" unique_id=802311075]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08337501
+anchor_top = 0.15210116
+anchor_right = 0.45637503
+anchor_bottom = 0.4551012
+offset_left = 0.27999115
+offset_top = -0.14801025
+offset_right = -0.16003418
+offset_bottom = -0.016021729
+theme_override_font_sizes/font_size = 48
+text = "Host lobby         "
+metadata/_edit_use_anchors_ = true
+
+[node name="Join" type="Button" parent="Buttons" unique_id=457077190]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56665623
+anchor_top = 0.15152813
+anchor_right = 0.93965626
+anchor_bottom = 0.48052806
+offset_left = -0.32000732
+offset_top = 0.055984497
+offset_right = 0.23999023
+offset_bottom = -0.067993164
+theme_override_font_sizes/font_size = 48
+text = "Join Lobby"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Control" parent="." unique_id=1378203962]
+layout_mode = 1
+anchor_left = 0.37
+anchor_top = 0.14
+anchor_right = 0.59900004
+anchor_bottom = 0.19600001
+offset_left = -41.600006
+offset_top = 3.199997
+offset_right = 77.27997
+offset_bottom = 2.8799896
+
+[node name="ColorRect" type="ColorRect" parent="Title" unique_id=670000696]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -15.0
+offset_right = 433.0
+offset_bottom = 61.0
+color = Color(0.45, 0.45, 0.45, 1)
+
+[node name="shadow" type="Label" parent="Title" unique_id=1757676184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -7.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.50980395)
+theme_override_fonts/font = ExtResource("2_5gu6x")
+theme_override_font_sizes/font_size = 64
+text = "Shop Chess"
+
+[node name="Label" type="Label" parent="Title" unique_id=537713261]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5gu6x")
+theme_override_font_sizes/font_size = 64
+text = "Shop Chess"
