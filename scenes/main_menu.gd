@@ -1,10 +1,8 @@
 class_name MainMenu
-extends Control
+extends SceneChanger
 
 @export var host_button: Button;
 @export var join_button: Button;
-
-signal change_scene(new_scene: PackedScene);
 
 const host_menu: PackedScene = preload("res://scenes/hosted_lobby.tscn");
 const join_menu: PackedScene = preload("res://scenes/lobby_browser.tscn");

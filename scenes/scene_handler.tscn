@@ -4,14 +4,12 @@
 [ext_resource type="Script" uid="uid://c2iqs61utou7q" path="res://scenes/scene_handler.gd" id="1_tx7b0"]
 [ext_resource type="PackedScene" uid="uid://bjyoawwlovgx7" path="res://scenes/network.tscn" id="2_tx7b0"]
 
-[node name="SceneHandler" type="Node2D" unique_id=1422123257 node_paths=PackedStringArray("main_menu")]
+[node name="SceneHandler" type="Node2D" unique_id=1422123257 node_paths=PackedStringArray("menu")]
 script = ExtResource("1_tx7b0")
-main_menu = NodePath("CanvasLayer/MainMenu")
+menu = NodePath("CanvasLayer/MainMenu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1315602580]
 
-[node name="MainMenu" parent="CanvasLayer" unique_id=879698460 instance=ExtResource("1_6kaua")]
+[node name="MainMenu" parent="CanvasLayer" unique_id=1569978266 instance=ExtResource("1_6kaua")]
 
 [node name="Network" parent="." unique_id=1031782603 instance=ExtResource("2_tx7b0")]
-
-[connection signal="player_joined" from="Network" to="CanvasLayer/MainMenu" method="_on_network_player_joined"]

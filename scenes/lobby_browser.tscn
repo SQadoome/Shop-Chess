@@ -81,3 +81,19 @@ offset_bottom = -0.067993164
 theme_override_font_sizes/font_size = 48
 text = "Join"
 metadata/_edit_use_anchors_ = true
+
+[node name="FailLabel" type="Label" parent="." unique_id=550485839]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21796875
+anchor_top = 0.30694443
+anchor_right = 0.6652187
+anchor_bottom = 0.381
+offset_right = -0.480011
+offset_bottom = -0.32002258
+theme_override_fonts/font = ExtResource("2_dpbp3")
+theme_override_font_sizes/font_size = 48
+text = "Failed to join!"
+metadata/_edit_use_anchors_ = true

@@ -2,21 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c53a1agbv8pwn" path="res://scenes/main_menu.gd" id="1_o1atq"]
 [ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="2_5gu6x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.91, 0.91, 0.91, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-shadow_color = Color(0.09, 0.09, 0.09, 0.6)
-shadow_size = 16
-shadow_offset = Vector2(8, 8)
-
-[sub_resource type="Theme" id="Theme_0ufp5"]
-Button/colors/font_color = Color(0.29, 0.29, 0.29, 1)
-Button/fonts/font = ExtResource("2_5gu6x")
-Button/styles/normal = SubResource("StyleBoxFlat_ekxnf")
+[ext_resource type="Theme" uid="uid://biiy1s40kajqd" path="res://scenes/ui.tres" id="2_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=1569978266 node_paths=PackedStringArray("host_button", "join_button")]
 layout_mode = 3
@@ -48,7 +34,7 @@ offset_top = -0.32003784
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme = SubResource("Theme_0ufp5")
+theme = ExtResource("2_bqqt6")
 
 [node name="Host" type="Button" parent="Buttons" unique_id=802311075]
 layout_mode = 1
@@ -82,14 +68,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Control" parent="." unique_id=1378203962]
 layout_mode = 1
-anchor_left = 0.37
-anchor_top = 0.14
-anchor_right = 0.59900004
-anchor_bottom = 0.19600001
-offset_left = -41.600006
-offset_top = 3.199997
-offset_right = 77.27997
-offset_bottom = 2.8799896
+anchor_left = 0.3375
+anchor_top = 0.14444445
+anchor_right = 0.659375
+anchor_bottom = 0.2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Title" unique_id=670000696]
 layout_mode = 0

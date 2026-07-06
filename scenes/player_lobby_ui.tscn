@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ccmcrdq8mxfrl"]
+
+[ext_resource type="Script" uid="uid://wlaqxqyvjng7" path="res://scenes/player_lobby_ui.gd" id="1_beog0"]
+[ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="2_rctrf"]
+[ext_resource type="Texture2D" uid="uid://csdvjx10g15gh" path="res://icon.svg" id="3_n5qbk"]
+
+[node name="PlayerLobbyUI" type="Control" unique_id=891869022]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_beog0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=473867216]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03984375
+anchor_top = 0.013888889
+anchor_right = 0.9015625
+anchor_bottom = 0.14583333
+color = Color(0.46, 0.46, 0.46, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1092772663]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11440625
+anchor_top = 0.061166666
+anchor_right = 0.30440626
+anchor_bottom = 0.105166666
+offset_left = -0.44000244
+offset_top = -0.040000916
+offset_right = 0.35998535
+offset_bottom = 0.27999496
+theme_override_fonts/font = ExtResource("2_rctrf")
+theme_override_font_sizes/font_size = 32
+text = "Placeholder"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1292368708]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051468752
+anchor_top = 0.030722223
+anchor_right = 0.10146876
+anchor_bottom = 0.123722225
+offset_left = 0.11999512
+offset_top = 2.8799992
+offset_right = 0.11999512
+offset_bottom = -0.08000183
+texture = ExtResource("3_n5qbk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=872379638]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+anchor_left = 0.8375
+anchor_top = 0.0375
+anchor_right = 0.8875
+anchor_bottom = 0.12638889
+metadata/_edit_use_anchors_ = true

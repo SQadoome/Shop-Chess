@@ -1,4 +1,4 @@
-extends Node
+extends SceneChanger
 
 var lobby_id: int = 0;
 
@@ -8,12 +8,9 @@ func _ready() -> void:
 	_initilize_steam();
 	
 	Steam.lobby_created.connect(_on_lobby_created);
-	Steam.lobby_joined.connect(_on_lobby_joined);
-	
 	
 
 func _notification(what: int) -> void:
-	print(what)
 	if what == Node.NOTIFICATION_WM_CLOSE_REQUEST:
 		leave_lobby();
 	
@@ -57,10 +54,6 @@ func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
 		assert(false, "Failed to set lobby_data");
 	
 	lobby_created.emit(_lobby_id);
-	
-
-func _on_lobby_joined() -> void:
-	pass
 	
 
 func leave_lobby() -> void:

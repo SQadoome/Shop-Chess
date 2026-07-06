@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://biiy1s40kajqd"]
+
+[ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="1_oei2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.91, 0.91, 0.91, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.09, 0.09, 0.09, 0.6)
+shadow_size = 16
+shadow_offset = Vector2(8, 8)
+
+[resource]
+Button/colors/font_color = Color(0.29, 0.29, 0.29, 1)
+Button/fonts/font = ExtResource("1_oei2i")
+Button/styles/normal = SubResource("StyleBoxFlat_ekxnf")

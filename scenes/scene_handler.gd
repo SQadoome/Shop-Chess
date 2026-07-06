@@ -3,17 +3,20 @@ extends Node2D
 var player_1
 var player_2
 
-@export var main_menu: MainMenu
-
-var sub_menu: Control = null;
+@export var menu: Control
 
 func _ready() -> void:
-	main_menu.change_scene.connect(func(scene: PackedScene) -> void:
-		var new_instance: Control = scene.instantiate()
-		sub_menu = new_instance;
-		$CanvasLayer.add_child(new_instance);
-		main_menu.hide());
+	menu.change_scene.connect(_change_menu)
 	
+
+func _change_menu(scene: PackedScene) -> void:
+	if (menu != null):
+		menu.queue_free();
+	
+	var new_instance: SceneChanger = scene.instantiate();
+	menu = new_instance;
+	$CanvasLayer.add_child(new_instance);
+	menu.change_scene.connect(_change_menu);
 	
 
 @rpc("authority", "call_local", "reliable")
