@@ -34,11 +34,28 @@ func _initilize_steam() -> void:
 		
 	
 
+func join_lobby(lobby: int) -> void:
+	Steam.joinLobby(lobby);
+	lobby_id = lobby;
+	
+ 
 func create_lobby() -> void:
 	const MAX_PLAYERS: int = 2;
 	const VISIBILITY: Steam.LobbyType = Steam.LOBBY_TYPE_PUBLIC;
 	
 	Steam.createLobby(VISIBILITY, MAX_PLAYERS);
+	Steam.setLobbyMemberData(lobby_id, "host", "true");
+	
+	Steam.setLobbyMemberData(
+		Steamworks.lobby_id,
+		"username",
+		Steam.getPersonaName(),
+	)
+	Steam.setLobbyMemberData(
+		Steamworks.lobby_id,
+		"ready",
+		"false",
+	)
 	
 
 func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:

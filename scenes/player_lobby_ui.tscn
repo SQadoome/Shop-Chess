@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_beog0")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=473867216]
@@ -54,8 +55,7 @@ texture = ExtResource("3_n5qbk")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=872379638]
-modulate = Color(1, 0, 0, 1)
+[node name="PlayerReady" type="ColorRect" parent="." unique_id=872379638]
 layout_mode = 0
 anchor_left = 0.8375
 anchor_top = 0.0375

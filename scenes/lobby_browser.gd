@@ -18,6 +18,7 @@ func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int)
 func _join_successfull() -> void:
 	change_scene.emit(LOBBY_SCENE);
 	$FailLabel.hide();
+	
 	Steam.setLobbyMemberData(
 		Steamworks.lobby_id,
 		"username",
@@ -36,6 +37,6 @@ func _join_failed():
 
 func _on_join_pressed() -> void:
 	var lobby_id: int = $Code/TextEdit.text.to_int();
-	Steam.joinLobby(lobby_id);
+	Steamworks.join_lobby(lobby_id);
 	
 	
