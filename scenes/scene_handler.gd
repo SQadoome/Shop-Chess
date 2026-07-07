@@ -4,6 +4,8 @@ extends Node2D
 var player_1
 var player_2
 
+signal game_started()
+
 @export var menu: Control
 
 static var instance: SceneHandler
@@ -30,6 +32,6 @@ func _change_menu(scene: PackedScene) -> void:
 	
 
 @rpc("authority", "call_local", "reliable")
-func start_game(p1: int, p2: int) -> void:
-	print("Yooooo");
+func start_game() -> void:
+	game_started.emit();
 	

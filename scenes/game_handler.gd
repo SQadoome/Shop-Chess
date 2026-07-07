@@ -1,13 +1,11 @@
 class_name GameHandler
 extends Node2D
 
-@onready var WhiteMap: TileMapLayer = get_node("CanvasLayer/WhitePieces")
-@onready var BlackMap: TileMapLayer = get_node("CanvasLayer/BlackPieces")
-@onready var ObstacleMap: TileMapLayer = get_node("CanvasLayer/Obstacles")
-@onready var Overlay = load("res://scenes/overlay.tscn")
-@onready var CastleOverlay = load("res://scenes/castle_overlay.tscn")
-@onready var NETWORK: Network = get_tree().get_first_node_in_group("Network")
-
+@onready var WhiteMap: TileMapLayer = get_node("CanvasLayer/WhitePieces");
+@onready var BlackMap: TileMapLayer = get_node("CanvasLayer/BlackPieces");
+@onready var ObstacleMap: TileMapLayer = get_node("CanvasLayer/Obstacles");
+@onready var Overlay = load("res://scenes/overlay.tscn");
+@onready var CastleOverlay = load("res://scenes/castle_overlay.tscn");
 
 var pieces: Array = []
 var player_team: int = 0
@@ -16,7 +14,14 @@ var BoardSize: int = 8
 var Turn: int = 0
 var Coins: int = 5
 
+static var instance: GameHandler
 
+func _enter_tree() -> void:
+	if (instance == null):
+		instance = self;
+	else:
+		assert(false, "Singleton violation")
+	
 
 func _ready() -> void:
 	if player_team == 1:
@@ -277,7 +282,7 @@ func _on_custom_audio_finished(audio_player: AudioStreamPlayer) -> void:
 func _increase_coins(value: int, caller_team: int) -> void:
 	if caller_team == player_team:
 		Coins += value
-		NETWORK.Players["Player" + str(caller_team+1)]["Coins"] = Coins
+		#NETWORK.Players["Player" + str(caller_team+1)]["Coins"] = Coins
 		_update_coins.rpc(caller_team, Coins)
 	
 
@@ -304,7 +309,7 @@ func _coin_animation(at_pos: Vector2, team:int, amount: int) -> void:
 func _decrease_coins(caller_team, value: int) -> void:
 	if caller_team == player_team:
 		Coins -= value
-		NETWORK.Players["Player" + str(caller_team+1)]["Coins"] = Coins
+		#NETWORK.Players["Player" + str(caller_team+1)]["Coins"] = Coins
 		_update_coins.rpc(caller_team, Coins)
 	
 

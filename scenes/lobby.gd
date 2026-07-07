@@ -6,6 +6,9 @@ signal player_readied(player: int)
 const PLAYER_UI: PackedScene = preload("res://scenes/player_lobby_ui.tscn");
 
 var players: Array[PlayerData] = []
+@onready var ready_button: Button = %Ready;
+@onready var start_timer: StartTimer = %StartTimer;
+
 
 func _ready() -> void:
 	Steam.lobby_chat_update.connect(_update_lobby);
@@ -16,7 +19,8 @@ func _ready() -> void:
 	_update_lobby();
 	Steam.avatar_loaded.connect(_set_avatar);
 	
-	$Button.pressed.connect(_update_ready);
+	ready_button.pressed.connect(_update_ready);
+	SceneHandler.instance.game_started.connect(print.bind("Yoo"))
 
 func _set_avatar(player_id: int, _size: int, data: Array) -> void:
 	for index:int in players.size():
@@ -39,10 +43,10 @@ func _update_ready() -> void:
 	var new_value: String = "";
 	if (old_value == "true"):
 		new_value = "false";
-		$Button.text = "READY";
+		ready_button.text = "READY";
 	else:
 		new_value = "true";
-		$Button.text = "UNREADY";
+		ready_button.text = "UNREADY";
 	
 	Steam.setLobbyMemberData(
 		Steamworks.lobby_id, "ready", new_value
@@ -100,9 +104,11 @@ func _update_lobby() -> void:
 	
 
 func _start_game() -> void:
-	$Button.hide();
-	$StartTimer.start();
+	ready_button.hide();
+	start_timer.start();
+	start_timer.show();
 	
-	$StartTimer.finished.connect(func() -> void:
-		SceneHandler.instance.start_game(1, 1))
+	start_timer.finished.connect(func() -> void:
+		if (multiplayer.is_server() == true):
+			SceneHandler.instance.start_game.rpc());
 	

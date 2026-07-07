@@ -23,7 +23,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Button" type="Button" parent="." unique_id=1109261330]
+[node name="Ready" type="Button" parent="." unique_id=1109261330]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.078125
@@ -45,6 +46,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="StartTimer" parent="." unique_id=1588072579 instance=ExtResource("3_q60fs")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
