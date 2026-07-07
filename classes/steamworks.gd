@@ -45,13 +45,19 @@ func join_lobby(lobby: int) -> void:
 	
  
 func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int) -> void:
-	if (response == 0):
-		peer = SteamMultiplayerPeer.new();
-		var server_id: int = Steam.getLobbyOwner(lobby_id);
-		peer.create_client(server_id, 0);
-		peer.server_relay = true;
-		multiplayer.set_multiplayer_peer(peer);
+	if (response == 1):
+		lobby_id = lobby;
 		
+		if (Steam.getLobbyOwner(lobby_id) != steam_id):
+			peer = SteamMultiplayerPeer.new();
+			var server_id: int = Steam.getLobbyOwner(lobby_id);
+			var creation_result: int = peer.create_client(server_id);
+			printerr(creation_result)
+			peer.server_relay = true;
+			multiplayer.set_multiplayer_peer(peer);
+		
+	
+	assert(response == 1)
 	
 
 func create_lobby() -> void:
@@ -78,7 +84,8 @@ func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
 		peer = SteamMultiplayerPeer.new();
 		peer.create_host(0);
 		peer.server_relay = true;
-		multiplayer.set_muiltiplayer_peer(peer);
+		multiplayer.set_muiltplayer_peer(peer);
+		printerr("ASFHGYUSDHIJGFSDYKTGHJDS")
 	
 	lobby_created.emit(_lobby_id);
 	

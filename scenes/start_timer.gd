@@ -3,10 +3,10 @@ extends Control
 
 signal finished
 
-func start(iteration: int = 5) -> void:
+func start(iteration: int = 4) -> void:
 	$Label.text = str(iteration);
 	
-	if (iteration < 0):
+	if (iteration <= 0):
 		finished.emit();
 		return;
 	

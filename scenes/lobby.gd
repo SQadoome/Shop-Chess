@@ -11,7 +11,6 @@ var players: Array[PlayerData] = []
 
 
 func _ready() -> void:
-	Steam.lobby_chat_update.connect(_update_lobby);
 	Steam.lobby_data_update.connect(
 		func(success: int, lobby_id: int, member_id: int) -> void:
 			_update_lobby();
@@ -107,8 +106,9 @@ func _start_game() -> void:
 	ready_button.hide();
 	start_timer.start();
 	start_timer.show();
-	
+	Steamworks
 	start_timer.finished.connect(func() -> void:
 		if (multiplayer.is_server() == true):
+			printerr("WTRSFASFASF")
 			SceneHandler.instance.start_game.rpc());
 	
