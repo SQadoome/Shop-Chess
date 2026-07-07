@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cb3rwjrjw5b37"]
+
+[ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="1_sym1k"]
+[ext_resource type="Script" uid="uid://dae23omc3jd3e" path="res://scenes/start_timer.gd" id="1_yssu8"]
+
+[node name="StartTimer" type="Control" unique_id=1588072579]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yssu8")
+
+[node name="Label" type="Label" parent="." unique_id=466134466]
+layout_mode = 1
+offset_right = 60.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("1_sym1k")
+theme_override_font_sizes/font_size = 96
+text = "5"

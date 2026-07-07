@@ -5,6 +5,7 @@ var username: String
 var pfp: Texture
 var position_in_lobby: int
 var ready_value: bool
+var steam_id: int
 
 const DEFAULT_PFP: Texture = preload("res://icon.svg");
 

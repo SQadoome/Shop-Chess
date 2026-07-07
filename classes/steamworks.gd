@@ -1,6 +1,8 @@
 extends SceneChanger
 
 var lobby_id: int = 0;
+var peer: MultiplayerPeerExtension;
+var steam_id: int
 
 signal lobby_created(id: int)
 
@@ -8,6 +10,7 @@ func _ready() -> void:
 	_initilize_steam();
 	
 	Steam.lobby_created.connect(_on_lobby_created);
+	Steam.lobby_joined.connect(_on_lobby_joined);
 	
 
 func _notification(what: int) -> void:
@@ -33,29 +36,30 @@ func _initilize_steam() -> void:
 		assert(false);
 		
 	
+	steam_id = Steam.getSteamID();
+	
 
 func join_lobby(lobby: int) -> void:
 	Steam.joinLobby(lobby);
 	lobby_id = lobby;
 	
  
+func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int) -> void:
+	if (response == 0):
+		peer = SteamMultiplayerPeer.new();
+		var server_id: int = Steam.getLobbyOwner(lobby_id);
+		peer.create_client(server_id, 0);
+		peer.server_relay = true;
+		multiplayer.set_multiplayer_peer(peer);
+		
+	
+
 func create_lobby() -> void:
 	const MAX_PLAYERS: int = 2;
 	const VISIBILITY: Steam.LobbyType = Steam.LOBBY_TYPE_PUBLIC;
 	
 	Steam.createLobby(VISIBILITY, MAX_PLAYERS);
 	Steam.setLobbyMemberData(lobby_id, "host", "true");
-	
-	Steam.setLobbyMemberData(
-		Steamworks.lobby_id,
-		"username",
-		Steam.getPersonaName(),
-	)
-	Steam.setLobbyMemberData(
-		Steamworks.lobby_id,
-		"ready",
-		"false",
-	)
 	
 
 func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
@@ -69,6 +73,12 @@ func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
 	
 	if (not Steam.setLobbyData(lobby_id, "lobby_name", lobby_name)):
 		assert(false, "Failed to set lobby_data");
+	
+	if (Steam.getLobbyOwner(lobby_id) == steam_id):
+		peer = SteamMultiplayerPeer.new();
+		peer.create_host(0);
+		peer.server_relay = true;
+		multiplayer.set_muiltiplayer_peer(peer);
 	
 	lobby_created.emit(_lobby_id);
 	

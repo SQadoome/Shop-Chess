@@ -4,6 +4,7 @@ extends SceneChanger
 signal player_readied(player: int)
 
 const PLAYER_UI: PackedScene = preload("res://scenes/player_lobby_ui.tscn");
+
 var players: Array[PlayerData] = []
 
 func _ready() -> void:
@@ -13,13 +14,28 @@ func _ready() -> void:
 			_update_lobby();
 	);
 	_update_lobby();
+	Steam.avatar_loaded.connect(_set_avatar);
 	
 	$Button.pressed.connect(_update_ready);
+
+func _set_avatar(player_id: int, _size: int, data: Array) -> void:
+	for index:int in players.size():
+		var p_data: PlayerData = players[index];
+		
+		if (p_data.steam_id == player_id):
+			var pfp_image: Image = Image.create_from_data(
+				_size, _size, false, Image.FORMAT_RGBA8, data
+			);
+			var pfp_texture: Texture2D = ImageTexture.create_from_image(pfp_image);
+			
+			p_data.pfp = pfp_texture;
+		
+	_set_players();
 
 func _update_ready() -> void:
 	var old_value: String = Steam.getLobbyMemberData(
 		Steamworks.lobby_id, Steam.getSteamID(), "ready"
-	)
+	);
 	var new_value: String = "";
 	if (old_value == "true"):
 		new_value = "false";
@@ -49,7 +65,10 @@ func _update_lobby_data() -> void:
 		p_data.username = username;
 		p_data.set_ready(ready_str);
 		p_data.position_in_lobby = Steam.getNumLobbyMembers(Steamworks.lobby_id);
+		p_data.steam_id = p_id;
 		players[index] = p_data;
+		
+		Steam.getPlayerAvatar(Steam.AVATAR_MEDIUM, p_id);
 		
 	
 
@@ -72,8 +91,18 @@ func _update_lobby() -> void:
 	_update_lobby_data();
 	_set_players();
 	
+	for data:PlayerData in players:
+		if (data.ready_value == false):
+			return;
+		
+	
+	_start_game();
+	
 
-#109775242146482773
-func add_player() -> void:
-	pass
+func _start_game() -> void:
+	$Button.hide();
+	$StartTimer.start();
+	
+	$StartTimer.finished.connect(func() -> void:
+		SceneHandler.instance.start_game(1, 1))
 	

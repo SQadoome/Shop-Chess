@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgjuyugoyl2ou" path="res://scenes/lobby.gd" id="1_o1atq"]
 [ext_resource type="Theme" uid="uid://biiy1s40kajqd" path="res://scenes/ui.tres" id="2_5gu6x"]
+[ext_resource type="PackedScene" uid="uid://cb3rwjrjw5b37" path="res://scenes/start_timer.tscn" id="3_q60fs"]
 
 [node name="Lobby" type="Control" unique_id=90329442]
 layout_mode = 3
@@ -42,3 +43,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="StartTimer" parent="." unique_id=1588072579 instance=ExtResource("3_q60fs")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47890624
+anchor_top = 0.72083336
+anchor_right = 0.5335938
+anchor_bottom = 0.85694444
+metadata/_edit_use_anchors_ = true
