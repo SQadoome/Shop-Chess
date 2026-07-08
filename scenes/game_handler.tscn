@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4jse46773qbx"]
+[gd_scene load_steps=16 format=3 uid="uid://b4jse46773qbx"]
 
 [ext_resource type="Script" uid="uid://c2q51pdj4pbfg" path="res://scenes/game_handler.gd" id="1_dutkj"]
 [ext_resource type="Texture2D" uid="uid://bd3isyy1qh26w" path="res://art/normal/board.png" id="2_0i4ec"]
@@ -23,73 +23,12 @@ texture_region_size = Vector2i(22, 22)
 tile_size = Vector2i(22, 22)
 sources/0 = SubResource("TileSetAtlasSource_om3o7")
 
-[sub_resource type="Animation" id="Animation_ihpyp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Turn:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.51, 1, 0.518167, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Turn:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(97.5, 78.5)]
-}
-
-[sub_resource type="Animation" id="Animation_q44q8"]
-resource_name = "turn"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Turn:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.766667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0.51, 0.51, 0), Color(1, 0.51, 0.51, 1), Color(1, 0.51, 0.51, 1), Color(1, 0.51, 0.51, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Turn:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.466667, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 78.5), Vector2(0, 88.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cggay"]
-_data = {
-&"RESET": SubResource("Animation_ihpyp"),
-&"turn": SubResource("Animation_q44q8")
-}
-
-[node name="GameHandler" type="Node2D" unique_id=1553726090 groups=["GameHandler"]]
+[node name="GameHandler" type="Node2D" groups=["GameHandler"]]
 script = ExtResource("1_dutkj")
 
-[node name="BackGround" type="CanvasLayer" parent="." unique_id=156128771]
+[node name="BackGround" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="BackGround" unique_id=1278982121]
+[node name="ColorRect" type="ColorRect" parent="BackGround"]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,70 +38,70 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2032423410]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="p1inv" parent="CanvasLayer" unique_id=1928195362 instance=ExtResource("15_7ciag")]
+[node name="p1inv" parent="CanvasLayer" instance=ExtResource("15_7ciag")]
 offset_left = -160.0
 offset_top = -90.0
 offset_right = -160.0
 offset_bottom = -90.0
 
-[node name="p2inv" parent="CanvasLayer" unique_id=652195039 instance=ExtResource("15_7ciag")]
+[node name="p2inv" parent="CanvasLayer" instance=ExtResource("15_7ciag")]
 offset_left = -160.0
 offset_top = 90.0
 offset_right = -160.0
 offset_bottom = 90.0
 scale = Vector2(1, -1)
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer" unique_id=106522668]
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 
-[node name="Board" type="Sprite2D" parent="CanvasLayer" unique_id=1676414633]
+[node name="Board" type="Sprite2D" parent="CanvasLayer"]
 texture = ExtResource("2_0i4ec")
 
-[node name="Numbers" type="Sprite2D" parent="CanvasLayer" unique_id=1910941933]
+[node name="Numbers" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(95, 0)
 texture = ExtResource("3_r6qku")
 
-[node name="Text" type="Sprite2D" parent="CanvasLayer" unique_id=898597226]
+[node name="Text" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(-1, 96)
 texture = ExtResource("4_om3o7")
 
-[node name="BlackFocus" type="Sprite2D" parent="CanvasLayer" unique_id=854117865]
+[node name="BlackFocus" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 z_index = 3
 texture = ExtResource("5_t1phu")
 
-[node name="WhitePieces" parent="CanvasLayer" unique_id=752517472 instance=ExtResource("7_0i4ec")]
+[node name="WhitePieces" parent="CanvasLayer" instance=ExtResource("7_0i4ec")]
 
-[node name="BlackPieces" parent="CanvasLayer" unique_id=1181885591 instance=ExtResource("8_t1phu")]
+[node name="BlackPieces" parent="CanvasLayer" instance=ExtResource("8_t1phu")]
 
-[node name="Obstacles" type="TileMapLayer" parent="CanvasLayer" unique_id=335443103]
+[node name="Obstacles" type="TileMapLayer" parent="CanvasLayer"]
 visible = false
 tile_set = SubResource("TileSet_25ov6")
 
-[node name="Overlays" type="Node2D" parent="CanvasLayer" unique_id=19298328]
+[node name="Overlays" type="Node2D" parent="CanvasLayer"]
 
-[node name="Coins" type="Node2D" parent="CanvasLayer" unique_id=559008381]
+[node name="Coins" type="Node2D" parent="CanvasLayer"]
 
-[node name="0" type="Marker2D" parent="CanvasLayer" unique_id=1427084273]
+[node name="0" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(-256, 256)
 
-[node name="1" type="Marker2D" parent="CanvasLayer" unique_id=569367411]
+[node name="1" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(-256, -256)
 
-[node name="Marker" type="Sprite2D" parent="CanvasLayer" unique_id=368676100]
+[node name="Marker" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0.635294)
 texture = ExtResource("13_q44q8")
 
-[node name="Fixed" type="CanvasLayer" parent="." unique_id=1718748137]
+[node name="Fixed" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="Fixed" unique_id=1602162987 instance=ExtResource("12_qxcqc")]
+[node name="GUI" parent="Fixed" instance=ExtResource("12_qxcqc")]
 
-[node name="Shop" parent="Fixed" unique_id=1610335336 instance=ExtResource("13_0i4ec")]
+[node name="Shop" parent="Fixed" instance=ExtResource("13_0i4ec")]
 
-[node name="MainPlayer" type="Label" parent="Fixed" unique_id=829795762]
+[node name="MainPlayer" type="Label" parent="Fixed"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -174,7 +113,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("15_xt3ml")
 text = "eeee"
 
-[node name="SecondaryPlayer" type="Label" parent="Fixed" unique_id=274605701]
+[node name="SecondaryPlayer" type="Label" parent="Fixed"]
 anchors_preset = -1
 anchor_top = -0.0333333
 anchor_bottom = -0.0333333
@@ -186,7 +125,7 @@ theme_override_fonts/font = ExtResource("15_xt3ml")
 text = "eeee"
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="Fixed" unique_id=1711013207]
+[node name="Quit" type="Button" parent="Fixed"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -200,7 +139,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "QUIT"
 
-[node name="Rematch" type="Button" parent="Fixed" unique_id=544879962]
+[node name="Rematch" type="Button" parent="Fixed"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -214,7 +153,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "REMATCH"
 
-[node name="Label" type="Label" parent="Fixed/Rematch" unique_id=590147808]
+[node name="Label" type="Label" parent="Fixed/Rematch"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 23.0
@@ -222,7 +161,7 @@ offset_top = -23.0
 offset_right = 63.0
 text = "0/2"
 
-[node name="Turn" type="Label" parent="Fixed" unique_id=1656669451]
+[node name="Turn" type="Label" parent="Fixed"]
 modulate = Color(0.51, 1, 0.518167, 0)
 anchors_preset = 4
 anchor_top = 0.5
@@ -236,8 +175,7 @@ theme_override_fonts/font = ExtResource("15_xt3ml")
 theme_override_font_sizes/font_size = 20
 text = "your turn"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fixed" unique_id=1360523511]
-libraries/ = SubResource("AnimationLibrary_cggay")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fixed"]
 
 [connection signal="pressed" from="Fixed/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Fixed/Rematch" to="." method="_on_rematch_pressed"]

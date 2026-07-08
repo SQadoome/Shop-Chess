@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="chess"
 run/main_scene="uid://qf6lw8jn7lwy"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -62,8 +62,8 @@ textures/canvas_textures/default_texture_filter=0
 
 initialization/app_data/app_type=0
 initialization/app_data/app_id=480
-initialization/app_data/demo_id=0
-initialization/app_data/playtest_id=0
+initialization/app_data/demo_id=480
+initialization/app_data/playtest_id=480
 initialization/app_data/tool_id=0
 initialization/processes/initialize_on_startup=false
 initialization/processes/embed_callbacks=false

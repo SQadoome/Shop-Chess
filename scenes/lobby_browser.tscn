@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dm4lypgbv7vry"]
+[gd_scene load_steps=5 format=3 uid="uid://dm4lypgbv7vry"]
 
 [ext_resource type="Script" uid="uid://bj1o02c1ny3cq" path="res://scenes/lobby_browser.gd" id="1_iaktf"]
 [ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="2_dpbp3"]
@@ -18,7 +18,7 @@ Button/colors/font_color = Color(0.29, 0.29, 0.29, 1)
 Button/fonts/font = ExtResource("2_dpbp3")
 Button/styles/normal = SubResource("StyleBoxFlat_mmtjp")
 
-[node name="LobbyJoiner" type="Control" unique_id=1041385979]
+[node name="LobbyJoiner" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iaktf")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1146845232]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,62 +37,62 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Code" type="Control" parent="." unique_id=1738293756]
+[node name="Code" type="Control" parent="."]
 layout_mode = 1
 anchor_right = 0.998
 anchor_bottom = 0.61
-offset_right = -0.44006348
-offset_bottom = -0.2000122
+offset_right = -0.440063
+offset_bottom = -0.200012
 
-[node name="TextEdit" type="TextEdit" parent="Code" unique_id=1311242818]
+[node name="TextEdit" type="TextEdit" parent="Code"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.20438528
-anchor_top = 0.28473803
-anchor_right = 0.79483163
-anchor_bottom = 0.49430525
+anchor_left = 0.204385
+anchor_top = 0.284738
+anchor_right = 0.794832
+anchor_bottom = 0.494305
 theme_override_fonts/font = ExtResource("2_dpbp3")
 theme_override_font_sizes/font_size = 48
 placeholder_text = "Enter lobby code"
 metadata/_edit_use_anchors_ = true
 
-[node name="Buttons" type="Control" parent="." unique_id=297249481]
+[node name="Buttons" type="Control" parent="."]
 layout_mode = 1
-anchor_top = 0.50600004
+anchor_top = 0.506
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.32003784
+offset_top = -0.320038
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_fsxem")
 
-[node name="Join" type="Button" parent="Buttons" unique_id=869913841]
+[node name="Join" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.29946876
-anchor_top = 0.32568544
-anchor_right = 0.67246884
-anchor_bottom = 0.6546854
-offset_left = -0.32000732
-offset_top = 0.055984497
-offset_right = 0.23999023
-offset_bottom = -0.067993164
+anchor_left = 0.299469
+anchor_top = 0.325685
+anchor_right = 0.672469
+anchor_bottom = 0.654685
+offset_left = -0.320007
+offset_top = 0.0559845
+offset_right = 0.23999
+offset_bottom = -0.0679932
 theme_override_font_sizes/font_size = 48
 text = "Join"
 metadata/_edit_use_anchors_ = true
 
-[node name="FailLabel" type="Label" parent="." unique_id=550485839]
+[node name="FailLabel" type="Label" parent="."]
 visible = false
 modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21796875
-anchor_top = 0.30694443
-anchor_right = 0.6652187
+anchor_left = 0.217969
+anchor_top = 0.306944
+anchor_right = 0.665219
 anchor_bottom = 0.381
 offset_right = -0.480011
-offset_bottom = -0.32002258
+offset_bottom = -0.320023
 theme_override_fonts/font = ExtResource("2_dpbp3")
 theme_override_font_sizes/font_size = 48
 text = "Failed to join!"

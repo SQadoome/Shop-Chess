@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://dj5c144uwl4ik"]
+[gd_scene load_steps=4 format=3 uid="uid://dj5c144uwl4ik"]
 
 [ext_resource type="Script" uid="uid://dgjuyugoyl2ou" path="res://scenes/lobby.gd" id="1_o1atq"]
 [ext_resource type="Theme" uid="uid://biiy1s40kajqd" path="res://scenes/ui.tres" id="2_5gu6x"]
 [ext_resource type="PackedScene" uid="uid://cb3rwjrjw5b37" path="res://scenes/start_timer.tscn" id="3_q60fs"]
 
-[node name="Lobby" type="Control" unique_id=90329442]
+[node name="Lobby" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1atq")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1113081069]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,20 +23,20 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Ready" type="Button" parent="." unique_id=1109261330]
+[node name="Ready" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.078125
-anchor_top = 0.80277777
+anchor_top = 0.802778
 anchor_right = 0.36875
-anchor_bottom = 0.9236111
+anchor_bottom = 0.923611
 theme = ExtResource("2_5gu6x")
 theme_override_font_sizes/font_size = 48
 text = "Ready"
 metadata/_edit_use_anchors_ = true
 
-[node name="Players" type="Control" parent="." unique_id=1699107418]
+[node name="Players" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,13 +45,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="StartTimer" parent="." unique_id=1588072579 instance=ExtResource("3_q60fs")]
+[node name="StartTimer" parent="." instance=ExtResource("3_q60fs")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47890624
-anchor_top = 0.72083336
-anchor_right = 0.5335938
-anchor_bottom = 0.85694444
+anchor_left = 0.478906
+anchor_top = 0.720833
+anchor_right = 0.533594
+anchor_bottom = 0.856944
 metadata/_edit_use_anchors_ = true

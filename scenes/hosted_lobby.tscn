@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://be228mqwicpjj"]
+[gd_scene load_steps=3 format=3 uid="uid://be228mqwicpjj"]
 
 [ext_resource type="Script" uid="uid://bmlgfo72xaxd8" path="res://scenes/hosted_lobby.gd" id="1_rxo7q"]
 [ext_resource type="FontFile" uid="uid://knux3gtftdqa" path="res://small_pixel.ttf" id="1_v4ays"]
 
-[node name="HostedLobby" type="Control" unique_id=1858436856]
+[node name="HostedLobby" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxo7q")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1497479351]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,30 +22,30 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Code" type="Control" parent="ColorRect" unique_id=888825484]
+[node name="Code" type="Control" parent="ColorRect"]
 layout_mode = 1
 anchor_right = 0.998
 anchor_bottom = 0.61
-offset_right = -0.44006348
-offset_bottom = -0.2000122
+offset_right = -0.440063
+offset_bottom = -0.200012
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/Code" unique_id=848469382]
+[node name="ColorRect" type="ColorRect" parent="ColorRect/Code"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.054815974
+anchor_left = 0.054816
 anchor_top = 0.594533
-anchor_right = 0.94988257
-anchor_bottom = 0.7927107
-color = Color(0, 0, 0, 0.3254902)
+anchor_right = 0.949883
+anchor_bottom = 0.792711
+color = Color(0, 0, 0, 0.32549)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="ColorRect/Code" unique_id=1791358712]
+[node name="Label" type="Label" parent="ColorRect/Code"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.06577917
-anchor_top = 0.59908885
-anchor_right = 0.93970245
-anchor_bottom = 0.7881549
+anchor_left = 0.0657792
+anchor_top = 0.599089
+anchor_right = 0.939702
+anchor_bottom = 0.788155
 theme_override_fonts/font = ExtResource("1_v4ays")
 theme_override_font_sizes/font_size = 52
 text = "????"

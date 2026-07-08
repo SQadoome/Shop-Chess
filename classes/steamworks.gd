@@ -1,8 +1,8 @@
 extends SceneChanger
 
 var lobby_id: int = 0;
-var peer: MultiplayerPeerExtension;
-var steam_id: int
+var peer: MultiplayerPeer;
+var steam_id: int;
 
 signal lobby_created(id: int)
 
@@ -45,19 +45,18 @@ func join_lobby(lobby: int) -> void:
 	
  
 func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int) -> void:
-	if (response == 1):
+	if (response == Steam.RESULT_OK):
 		lobby_id = lobby;
 		
 		if (Steam.getLobbyOwner(lobby_id) != steam_id):
 			peer = SteamMultiplayerPeer.new();
 			var server_id: int = Steam.getLobbyOwner(lobby_id);
 			var creation_result: int = peer.create_client(server_id);
-			printerr(creation_result)
+			assert(creation_result == Error.OK);
 			peer.server_relay = true;
 			multiplayer.set_multiplayer_peer(peer);
 		
 	
-	assert(response == 1)
 	
 
 func create_lobby() -> void:
@@ -65,7 +64,6 @@ func create_lobby() -> void:
 	const VISIBILITY: Steam.LobbyType = Steam.LOBBY_TYPE_PUBLIC;
 	
 	Steam.createLobby(VISIBILITY, MAX_PLAYERS);
-	Steam.setLobbyMemberData(lobby_id, "host", "true");
 	
 
 func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
@@ -75,19 +73,16 @@ func _on_lobby_created(con_status: Steam.Result, _lobby_id: int) -> void:
 		return;
 	
 	lobby_id = _lobby_id;
-	var lobby_name: String = Steam.getPersonaName();
-	
-	if (not Steam.setLobbyData(lobby_id, "lobby_name", lobby_name)):
-		assert(false, "Failed to set lobby_data");
-	
-	if (Steam.getLobbyOwner(lobby_id) == steam_id):
-		peer = SteamMultiplayerPeer.new();
-		peer.create_host(0);
-		peer.server_relay = true;
-		multiplayer.set_muiltplayer_peer(peer);
-		printerr("ASFHGYUSDHIJGFSDYKTGHJDS")
 	
 	lobby_created.emit(_lobby_id);
+	await get_tree().create_timer(1.0).timeout
+	if (Steam.getLobbyOwner(lobby_id) == steam_id):
+		peer = SteamMultiplayerPeer.new();
+		var hosting_result: Error = peer.create_host();
+		printerr(hosting_result);
+		assert(hosting_result == Error.OK);
+		peer.server_relay = true;
+		multiplayer.set_multiplayer_peer(peer);
 	
 
 func leave_lobby() -> void:
